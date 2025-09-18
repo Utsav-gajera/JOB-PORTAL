@@ -57,8 +57,6 @@ export const ClerkWebhook = async (req, res) => {
             break;
         }
             
-            
-    
         default:
             break;
     }

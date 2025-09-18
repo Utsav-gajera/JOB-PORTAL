@@ -5,6 +5,8 @@ import 'dotenv/config'
 import connectDB from './config/db.js';
 import * as Sentry from "@sentry/node";
 import { ClerkWebhook } from "./controllers/webhooks.js";
+import bodyParser from "body-parser";
+
 
 
 
@@ -28,7 +30,7 @@ app.get("/debug-sentry", function mainHandler(req, res) {
   throw new Error("My first Sentry error!");
 });
 
-app.post('/webhooks',ClerkWebhook);
+app.post('/webhooks', bodyParser.raw({ type: "application/json" }), ClerkWebhook);
 
 //port
 
