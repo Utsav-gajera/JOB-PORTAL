@@ -27,11 +27,17 @@ await connectCloudinary();
 //middlewares
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(clerkMiddleware());
+
 
 app.post('/webhooks', bodyParser.raw({ type: "application/json" }), ClerkWebhook);
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+app.use(clerkMiddleware());
+
 app.use('/api/company', companyRoutes);
 app.use('/api/jobs',jobRoutes);
 app.use('/api/user',userRoutes);

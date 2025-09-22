@@ -42,9 +42,11 @@ const Applications = () => {
       );
 
       if (data.success) {
-        toast.success(data.message);
         await fetchUserData();
-      } else {
+        toast.success(data.message);
+        
+      } 
+      else {
         toast.error(data.message);
       }
     } catch (error) {
